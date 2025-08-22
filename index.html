@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Shabeer M P - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background: white;
+        }
+
+        .section-dark {
+            background: #f8f9ff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+        } */
+.about-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5px; /* space for gradient border */
+}
+
+.about-image .image-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+}
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea;
+        }
+
+        .timeline-item h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .company {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .period {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .project-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card .project-period {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-card .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: #f0f2ff;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .education-card h4 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .cgpa {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .contact-method a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Shabeer.dev</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Muhammed Shabeer M P</h1>
+            <p class="subtitle">Software Engineer L2 | .NET Developer</p>
+            <p>Passionate .NET Developer with 1.5+ years of experience in building scalable enterprise solutions, ERP applications, and API integrations. Specialized in ASP.NET Core, Microsoft Graph API, and ZATCA-compliant e-invoicing systems.</p>
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-light">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                      <div class="image-wrapper">
+                            <img src="images/shabeer.jpg" alt="Muhammed Shabeer" />
+                        </div>
+                </div>
+                <div class="about-text">
+                    <h3>Detail-oriented .NET Developer</h3>
+                    <p>I'm a passionate software engineer with expertise in building enterprise-level applications using modern .NET technologies. My experience spans across ERP development, API integrations, and creating scalable solutions for diverse business domains.</p>
+                    <p>Currently working at Infogate Technologies, I specialize in ERP application development using Windows Forms and ASP.NET MVC, with a focus on ZATCA-compliant e-invoicing systems for Saudi clients.</p>
+                    <p>Previously at ClaySys Technologies, I contributed to contact center projects, digital banking solutions, and productivity tools using Microsoft Graph API and EWS integrations.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>mpshabeer8182@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <span>+91 8281927605</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Malappuram, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <h3>Software Engineer</h3>
+                    <div class="company">Infogate Technologies – Tirur, India</div>
+                    <div class="period">June 2025 – Present</div>
+                    <ul>
+                        <li>Designed and customized ERP applications for clients in retail, trading, and finance domains</li>
+                        <li>Developed Windows Forms and ASP.NET MVC modules with modular and scalable architecture</li>
+                        <li>Implemented ZATCA-compliant e-invoicing (Phase 1 & 2) with QR code generation and XML reporting</li>
+                        <li>Worked on SQL Server (SSMS) for database design, stored procedures, and performance optimization</li>
+                        <li>Integrated Crystal Reports for tax invoices, financial analytics, and business reports</li>
+                        <li>Led requirement gathering, ERP customizations, and deployment support</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Software Engineer L2</h3>
+                    <div class="company">ClaySys Technologies – Kochi, India</div>
+                    <div class="period">Mar 2025 – Jun 2025</div>
+                    <ul>
+                        <li>Developed RESTful APIs using ASP.NET Core for enterprise-level productivity tools</li>
+                        <li>Integrated Microsoft Graph API and EWS for calendar sync and mailbox automation</li>
+                        <li>Contributed to Vue.js UI components and managed deployments with IIS performance tuning</li>
+                        <li>Worked on contact center projects and digital banking solutions</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Software Engineer L1</h3>
+                    <div class="company">ClaySys Technologies – Kochi, India</div>
+                    <div class="period">Jan 2023 – Feb 2025</div>
+                    <ul>
+                        <li>Built and deployed APIs integrating Graph API and EWS for automated scheduling and mailbox features</li>
+                        <li>Worked on SOAP-based banking API integrations (SymXchange) using XML/WSDL</li>
+                        <li>Optimized API performance with caching and query tuning; wrote unit tests (xUnit/NUnit)</li>
+                        <li>Supported end-to-end deployments and collaborated in agile sprints with QA and stakeholders</li>
+                        <li>Contributed to digital banking projects and contact center solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming & Frameworks</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">ASP.NET Core</span>
+                        <span class="skill-tag">ASP.NET MVC</span>
+                        <span class="skill-tag">Web API</span>
+                        <span class="skill-tag">Windows Forms</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>APIs & Integrations</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Graph API</span>
+                        <span class="skill-tag">EWS</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">SOAP</span>
+                        <span class="skill-tag">SymXchange</span>
+                        <span class="skill-tag">ZATCA E-invoicing</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Database & Reporting</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Crystal Reports</span>
+                        <span class="skill-tag">SSMS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Web & Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Visual Studio</span>
+                        <span class="skill-tag">IIS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Testing & Deployment</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">xUnit</span>
+                        <span class="skill-tag">NUnit</span>
+                        <span class="skill-tag">Unit Testing</span>
+                        <span class="skill-tag">Agile Methodologies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="projects-grid">
+<div class="project-card">
+                    <div class="project-header">
+                        <h4>ERP Solutions (Current)</h4>
+                        <div class="project-period">June 2025 – Present</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Developing comprehensive ERP applications for retail, trading, and finance domains with ZATCA-compliant e-invoicing and Crystal Reports integration.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ASP.NET MVC</span>
+                            <span class="tech-tag">Windows Forms</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Crystal Reports</span>
+                            <span class="tech-tag">ZATCA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h4>Contact Center & Digital Banking</h4>
+                        <div class="project-period">Jan 2023 – Jun 2025</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Contributed to enterprise contact center solutions and digital banking projects with Graph API integrations, EWS, and SOAP-based banking APIs.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">Microsoft Graph API</span>
+                            <span class="tech-tag">EWS</span>
+                            <span class="tech-tag">SymXchange</span>
+                            <span class="tech-tag">Vue.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h4>Smart Resume Selector</h4>
+                        <div class="project-period">Jan 2023 – May 2023</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Built an AI-based resume screening system using Naive Bayes & NLP to rank candidates by job-fit score, streamlining the recruitment process.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Naive Bayes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h4>Students Discussion Forum</h4>
+                        <div class="project-period">Aug 2022 – Dec 2022</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Developed a collaborative discussion platform for academic Q&A and knowledge sharing, facilitating student interaction and learning.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h4>Master of Computer Applications (MCA)</h4>
+                    <div class="institution">APJ Abdul Kalam Technological University<br>MES College of Engineering, Kuttipuram</div>
+                    <div class="period">Aug 2021 – Jun 2023</div>
+                    <div class="cgpa">CGPA: 7.8/10</div>
+                </div>
+
+                <div class="education-card">
+                    <h4>Bachelor of Computer Applications (BCA)</h4>
+                    <div class="institution">University of Calicut<br>Grace Valley Arts & Science College</div>
+                    <div class="period">Jun 2018 – Apr 2021</div>
+                    <div class="cgpa">CGPA: 7.0/10</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">Certifications</h3>
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <div style="background: white; padding: 1rem 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <strong>Introduction to Operating Systems</strong><br>
+                        <span style="color: #666;">NPTEL (IIT Kharagpur)</span>
+                    </div>
+                    <div style="background: white; padding: 1rem 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <strong>Data Mining</strong><br>
+                        <span style="color: #666;">NPTEL (IIT Kharagpur)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                I'm always open to discussing new opportunities, exciting projects, or just having a chat about technology and software development.
+            </p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <span>📧</span>
+                    <a href="mailto:mpshabeer8182@gmail.com">mpshabeer8182@gmail.com</a>
+                </div>
+                <div class="contact-method">
+                    <span>📞</span>
+                    <a href="tel:+918281927605">+91 8281927605</a>
+                </div>
+                <div class="contact-method">
+                    <span>💼</span>
+                    <a href="https://linkedin.com/in/muhammed-shabeer-mp-597b87210" target="_blank">LinkedIn Profile</a>
+                </div>
+                <div class="contact-method">
+                    <span>📍</span>
+                    <span>Malappuram, Kerala, India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.timeline-item, .skill-category, .project-card, .education-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
